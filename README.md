@@ -1,5 +1,5 @@
 # Sistema de controle de empréstimos de livros
-![Sistema de gerenciamneto de livros](https://github.com/user-attachments/assets/8d74185b-e380-41d6-8df2-1cc3ff5b1bfa)
+![Sistema de gerenciamneto de livros](https://github.com/user-attachments/assets/287faf36-b474-484d-a7b3-96ce17cca2c6)
 
 Este projeto implementa um sistema de controle de empréstimos de livros, onde os usuários podem se cadastrar, consultar livros e realizar empréstimos. A busca por livros é realizada através da Google Books API, que fornece informações detalhadas sobre os livros, como título, autor, ano de publicação, editora e descrição.O sistema foi desenvolvido em Java e utiliza conceitos de orientação a objetos, como herança e encapsulamento.
 
