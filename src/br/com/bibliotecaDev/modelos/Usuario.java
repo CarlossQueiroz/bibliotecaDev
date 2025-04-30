@@ -6,6 +6,7 @@ import java.util.List;
 public class Usuario extends Pessoa{
     private String matricula;
     private List<Emprestimo> emprestimosAtivos;
+    private  int limiteEmprestimos = 5;
 
     public Usuario(String nome, String email, String matricula) {
         super(nome, email);
@@ -14,6 +15,9 @@ public class Usuario extends Pessoa{
     }
 
     public void addEmprestimo(Emprestimo emprestimo){
+        if (emprestimosAtivos.size()>=limiteEmprestimos){
+            emprestimosAtivos.remove(0);
+        }
         this.emprestimosAtivos.add(emprestimo);
     }
 
