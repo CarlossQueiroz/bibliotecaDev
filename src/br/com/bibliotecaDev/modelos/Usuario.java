@@ -6,7 +6,7 @@ import java.util.List;
 public class Usuario extends Pessoa{
     private String matricula;
     private List<Emprestimo> emprestimosAtivos;
-    private  int limiteEmprestimos = 3;
+    private  int limiteEmprestimos = 5;
 
     public Usuario(String nome, String email, String matricula) {
         super(nome, email);
