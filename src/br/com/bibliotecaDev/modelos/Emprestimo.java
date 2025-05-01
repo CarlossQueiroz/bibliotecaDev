@@ -15,9 +15,7 @@ public class Emprestimo {
         this.dataDevolucao = dataEmprestimo.plusDays(14);
     }
 
-    public Usuario getUsuario() {
-        return usuario;
-    }
+    public Usuario getUsuario() { return usuario; }
 
     public Livro getLivro() {
         return livro;

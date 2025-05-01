@@ -34,7 +34,7 @@ public class MenuOpcoes {
                     user.consultarLivro();
                     break;
                 case 4:
-                    emprestimo.listarLivrosEmprestados();
+                    user.listarTodosEmprestimos();
                     break;
                 case 5:
                     login();

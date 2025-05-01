@@ -112,6 +112,16 @@ public class UsuarioController {
         }
     }
 
+    public void listarTodosEmprestimos(){
+        if (emprestimoController.getLivrosEmprestados().isEmpty()){
+            System.out.println("Nenhum livro emprestado.");
+        }
+        else {
+            System.out.println("*** LIVROS EMPRESTADOS ***");
+            emprestimoController.getLivrosEmprestados().forEach(item-> System.out.println(item.toString()));
+        }
+    }
+
     public boolean emailValidacao(String email){
         if (email == null) return false;
         Matcher matcher = EMAIL_PATTERN.matcher(email);

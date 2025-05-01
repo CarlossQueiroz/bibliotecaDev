@@ -14,7 +14,7 @@ public class EmprestimoController {
     public Emprestimo emprestimoLivro(Livro livro, Usuario usuario) {
         LocalDate hoje = LocalDate.now();
         Emprestimo emprestimo = new Emprestimo(usuario, livro, hoje);
-        livrosEmprestados.add(emprestimo);
+        this.livrosEmprestados.add(emprestimo);
         return emprestimo;
     }
 
@@ -27,13 +27,7 @@ public class EmprestimoController {
         return false;
     }
 
-    public void listarLivrosEmprestados(){
-        if (this.livrosEmprestados.isEmpty()){
-            System.out.println("Nenhum livro emprestado.");
-        }
-        else {
-            System.out.println("*** LIVROS EMPRESTADOS ***");
-            this.livrosEmprestados.forEach(item-> System.out.println(item.toString()));
-        }
+    public List<Emprestimo> getLivrosEmprestados() {
+        return livrosEmprestados;
     }
 }
