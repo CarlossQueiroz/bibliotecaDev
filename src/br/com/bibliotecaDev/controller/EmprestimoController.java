@@ -18,13 +18,8 @@ public class EmprestimoController {
         return emprestimo;
     }
 
-    public boolean livroDisponivel(String livro) {
-        for (Emprestimo e : livrosEmprestados) {
-            if (e.getLivro().getTitulo().equals(livro)) {
-                return true;
-            }
-        }
-        return false;
+    public void deletarEmprestimo(Livro livro){
+        livrosEmprestados.remove(livro);
     }
 
     public List<Emprestimo> getLivrosEmprestados() {

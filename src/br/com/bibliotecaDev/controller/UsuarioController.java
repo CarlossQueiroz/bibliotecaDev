@@ -94,7 +94,7 @@ public class UsuarioController {
         if (dadosLivro==null) return;
 
         Livro livro = new Livro(buscarLivro());
-        boolean disponivel = emprestimoController.livroDisponivel(livro.getTitulo());
+        boolean disponivel = usuario.get().livroDisponivel(livro.getTitulo());
 
         if (disponivel) {
             System.out.println("Livro indisponível para empréstimo. Tente outro!");
@@ -112,13 +112,27 @@ public class UsuarioController {
         }
     }
 
-    public void listarTodosEmprestimos(){
+    public void historicoEmprestimos(){
         if (emprestimoController.getLivrosEmprestados().isEmpty()){
             System.out.println("Nenhum livro emprestado.");
         }
         else {
             System.out.println("*** LIVROS EMPRESTADOS ***");
             emprestimoController.getLivrosEmprestados().forEach(item-> System.out.println(item.toString()));
+        }
+    }
+
+    public  void devolucaoLivro(){
+        LivroGoogleBooks dadosLivro = buscarLivro();
+        if (dadosLivro==null) return;
+
+        Livro livro = new Livro(dadosLivro);
+        boolean condicao = usuario.get().getEmprestimosAtivos().stream().anyMatch(l -> l.getLivro().getTitulo().equals(livro.getTitulo()));
+        if (condicao){
+        usuario.get().deletarEmprestimo(livro);
+        }
+        else{
+            System.out.println("Você não pegou este livro. Por favor, verifique!");
         }
     }
 

@@ -14,6 +14,15 @@ public class Usuario extends Pessoa{
         this.emprestimosAtivos=new ArrayList<>();
     }
 
+    public boolean livroDisponivel(String livro) {
+        for (Emprestimo emprestimo : emprestimosAtivos) {
+            if (emprestimo.getLivro().getTitulo().equals(livro)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public void addEmprestimo(Emprestimo emprestimo){
         if (emprestimosAtivos.size()>=limiteEmprestimos){
             emprestimosAtivos.remove(0);
@@ -29,8 +38,16 @@ public class Usuario extends Pessoa{
         }
     }
 
+    public void deletarEmprestimo(Livro livro){
+        emprestimosAtivos.removeIf(l -> l.getLivro().getTitulo().equals(livro.getTitulo()));
+    }
+
     public String getMatricula() {
         return matricula;
+    }
+
+    public List<Emprestimo> getEmprestimosAtivos() {
+        return emprestimosAtivos;
     }
 
     @Override

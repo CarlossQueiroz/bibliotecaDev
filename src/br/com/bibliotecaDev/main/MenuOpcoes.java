@@ -21,7 +21,7 @@ public class MenuOpcoes {
 
         do {
             System.out.println("**** Bem-vindo à BibliotecaDEV ****");
-            System.out.println("(1) Cadastrar usuário\n(2) Listar usuários\n(3) Consultar Livro\n(4) Livros emprestados\n(5) Login\n(0) Sair");
+            System.out.println("(1) Cadastrar usuário\n(2) Listar usuários\n(3) Consultar Livro\n(4) Histórico de empréstimos\n(5) Login\n(0) Sair");
             opcao = scanner.lerInt();
             switch (opcao){
                 case 1:
@@ -34,7 +34,7 @@ public class MenuOpcoes {
                     user.consultarLivro();
                     break;
                 case 4:
-                    user.listarTodosEmprestimos();
+                    user.historicoEmprestimos();
                     break;
                 case 5:
                     login();
@@ -70,7 +70,7 @@ public class MenuOpcoes {
 
         do{
 
-            System.out.println("(1) Pegar livro\n(2) Consultar empréstimos\n(3) Sair");
+            System.out.println("(1) Pegar livro\n(2) Consultar empréstimos\n(0) Sair");
             System.out.println("Escolha uma opção:");
             opcao = scanner.lerInt();
 
@@ -82,13 +82,16 @@ public class MenuOpcoes {
                     user.listarMeusEmprestimos();
                     break;
                 case 3:
+                    user.devolucaoLivro();
+                    break;
+                case 0:
                     user.logout();
                     break;
                 default:
                     System.out.println("Opção inválida.");
             }
 
-        }while (opcao!=3);
+        }while (opcao!=0);
     }
 
 }
